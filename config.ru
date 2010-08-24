@@ -7,6 +7,10 @@ use Rack::Rewrite do
 
   r302 '/thoughts/setting_up_a_new_remote_git_repository', 'http://book.git-scm.com/3_distributed_workflows.html'
 
+  r301 %r{.*}, 'http://shoebox.toolmantim.com$&', :if => Proc.new {|env|
+    env['SERVER_NAME'] == 'tumble.toolmantim.com'
+  }
+
   send_file '/', 'public/index.html'
 
 end
