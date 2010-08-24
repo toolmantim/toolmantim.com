@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang='en-au'>
+<head>
+  <meta charset='utf-8'>
+  <title>Hi, I'm Tim Lucas.</title>
+  <link href='http://www.myopenid.com/server' rel='openid.server' />
+  <link href='http://toolmantim.myopenid.com' rel='openid.delegate' />
+  <script src='http://use.typekit.com/giz5uom.js'></script>
+  <script>try{Typekit.load();}catch(e){}</script>
+  <!--[if lt IE 9]><script src='http://html5shiv.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
+  <style>
+    html, body, h1, p { margin: 0; padding: 0; line-height: 1; }
+    body { font-family: 'proxima-nova-1', 'proxima-nova-2', 'Helvetica Nueue', Helvetica, Arial, sans-serif; text-align: center; color: #444; position: absolute; height: 200px; top: 50%; margin-top: -50px; width: 100%; -webkit-animation: mess-with-their-minds 30s infinite; }
+    body, h1, b, p { font-weight: 100; }
+    h1 { margin-bottom: 18px; font-size: 30px; }
+      h1:hover b { display: none; }
+      h1:hover:after { content:'an actor-slash-model.'; }
+    p { font-size: 18px; color: #747474; }
+    a { font-weight: 400; color: #00ccff; text-decoration: none; }
+      a:hover { color: #fca000; }
+    @-webkit-keyframes mess-with-their-minds {
+      from { background-color: #fff;    }
+      20%  { background-color: #fffdf7; }
+      40%  { background-color: #f7fcff; }
+      60%  { background-color: #fef7ff; }
+      80%  { background-color: #fdf7ff; }
+      to   { background-color: #fff;    }
+    }
+  </style>
+  <script>
+    window.onload = function() {
+      var links = document.getElementsByTagName("a");
+      for (var i = 0; i < links.length; i++)
+        links[i].href = links[i].href.replace("THISDOMAIN", window.location.host);
+    }
+  </script>
+  </head>
+<body>
+  <h1>Hi, I’m Tim Lucas, <b>a designer-slash-developer.</b></h1>
+  <p>Work with me at <a href='http://designedbyelement.com/'>element</a>, shoot me <a href='mailto:hello@THISDOMAIN'>an email</a> or <a href='http://twitter.com/toolmantim'>follow me</a> on twitter.</p>
+</body>
+</html>
