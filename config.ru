@@ -2,6 +2,10 @@ require 'rack/rewrite'
 
 use Rack::Rewrite do
 
+  r301 %r{.*}, 'http://toolmantim.com$&', :if => Proc.new {|rack_env|
+    %w( www.toolmantim.com ww.toolmantim.com ).include? rack_env['SERVER_NAME']
+  }
+
   r302 '/photos', 'http://flickr.com/photos/toolmantim/'
   r302 %r{/photos/(\d+)}, 'http://flickr.com/photos/toolmantim/$1/'
 
@@ -10,7 +14,7 @@ use Rack::Rewrite do
   r301 %r{.*}, 'http://shoebox.toolmantim.com$&', :if => Proc.new {|env|
     env['SERVER_NAME'] == 'tumble.toolmantim.com'
   }
-
+  
   send_file '/', 'public/index.html'
 
 end
