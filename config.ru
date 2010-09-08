@@ -9,7 +9,7 @@ use Rack::Rewrite do
   r302 '/photos', 'http://flickr.com/photos/toolmantim/'
   r302 %r{/photos/(\d+)}, 'http://flickr.com/photos/toolmantim/$1/'
 
-  r302 '/thoughts/setting_up_a_new_remote_git_repository', 'http://book.git-scm.com/3_distributed_workflows.html'
+  r302 '/thoughts/setting_up_a_new_remote_git_repository', 'http://gist.github.com/569530'
 
   r301 %r{.*}, 'http://shoebox.toolmantim.com$&', :if => Proc.new {|env|
     env['SERVER_NAME'] == 'tumble.toolmantim.com'
