@@ -14,6 +14,10 @@ use Rack::Rewrite do
   r301 %r{.*}, 'http://scrapbook.toolmantim.com$&', :if => Proc.new {|env|
     %w( tumble.toolmantim.com shoebox.toolmantim.com ).include? env['SERVER_NAME']
   }
+
+  r301 %r{.*}, 'http://notebook.toolmantim.com$&', :if => Proc.new {|env|
+    env['SERVER_NAME'] == 'notes.toolmantim.com'
+  }
   
   send_file '/', 'public/index.html'
 
