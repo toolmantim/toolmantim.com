@@ -11,7 +11,7 @@ use Rack::Rewrite do
 
   r302 '/thoughts/setting_up_a_new_remote_git_repository', 'http://gist.github.com/569530'
 
-  r301 %r{.*}, 'http://shoebox.toolmantim.com$&', :if => Proc.new {|env|
+  r301 %r{.*}, 'http://scrapbook.toolmantim.com$&', :if => Proc.new {|env|
     %w( tumble.toolmantim.com shoebox.toolmantim.com ).include? env['SERVER_NAME']
   }
   
