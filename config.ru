@@ -19,6 +19,10 @@ use Rack::Rewrite do
     env['SERVER_NAME'] == 'notes.toolmantim.com'
   }
   
+  { "n" => "http://tumblr.com", "s" => "http://tumblr.com", "p" => "http://flickr.com/p" }.each_pair do |path, host|
+    r302 %r{/#{path}/(.*)}, host + '/$1'
+  end
+  
   send_file '/', 'public/index.html'
 
 end
