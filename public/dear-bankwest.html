@@ -17,19 +17,33 @@
     header h1 { font-size: 24px; line-height: 25px; display: inline; }
     header h1, header h1 a { color: #f29608; }
     header h1 a { text-decoration: none; }
+    aside { font-size: 13px; line-height: 20px; width: 54em;  border: 1px dashed #ccc; padding: 10px 13px; margin: 15px 0 0 -13px; }
+    aside p { display: block; margin: 0; }
+    aside p, aside p a { color: #555; }
     section { float: left; margin-top: 30px; padding-bottom: 50px; position: relative; }
     section h2 { font-size: 18px; line-height: 27px; }
-    section p.disclaimer { display: block; font-weight: bold; color: #; }
+    section p.disclaimer { display: block; font-weight: bold; }
     section img { margin-left: -32px; margin-right: 32px; }
     section img.pjb { position: absolute; top: 8px; right: 30px; visibility: hidden; }
     section:hover img.pjb { visibility: visible; }
+    .safari-extension { display: block; position: absolute; top: 0; left: 900px; width: 74px; padding: 15px 20px 20px 20px; background-color: #555; color: white; text-decoration: none; line-height: 1; }
+    .safari-extension:after { content: ' '; display: block; border-color: #555 #555 white #555; border-style:solid; border-width: 30px 57px 20px 57px; margin: -5px -20px -20px -20px; }
+    .safari-extension em { display: block; text-transform: lowercase; font: italic 13px georgia, serif; color: black; margin-bottom: 3px; color: #bbb; }
+    .safari-extension span { text-transform: uppercase; color: white; display: block; line-height: 1.1; font-weight: bold; }
+    .safari-extension span.s { font-size: 21px; }
+    .safari-extension span.e { font-size: 13px; }
+    .safari-extension:hover { background-color: #f29608; }
+    .safari-extension:hover em { color: white; }
+    .safari-extension:hover:after { border-color: #f29608 #f29608 white #f29608; }
   </style>
 </head>
 <body>
+  <a class="safari-extension" href="http://github.com/toolmantim/bankbest.safariextension"><em>Now with</em> <span class="s">Safari</span> <span class="e">Extension</span></a>
   <header>
     <h1>Dear <a href="http://bankwest.com.au/">Bankwest</a>,</h1>
     <p>My name’s <a href="http://toolmantim.com/">Tim Lucas</a> and I’m a user-interface designer and Bankwest customer from Sydney (props to Christine at the Randwick branch!). I love the recent design changes to online banking (keep it up!) but there’s one little thing that still drives me nuts: choosing the type of a new payment. Below left is the current UI and below right is my suggested change. If you can make this one change to Bankwest online banking I will buy your development team a case of their favourite beer (or other beverage of choice). Sincerely&nbsp;yours,&nbsp;<a href="http://toolmantim.com/">Tim</a>.</p>
   </header>
+  <aside><p>Huzzah! Only 24 hours after <a href="http://twitter.com/toolmantim/status/25072587554">sending this to Twitter</a> Bankwest got back to me. They dig the idea (yay!) but it doesn’t sound like we should hold our breath (boo!). The natural web nerd reponse to this? A <a href="http://github.com/toolmantim/bankbest.safariextension">bankbest Safari Extension</a> which transmogrifies your Bankwest Online Banking to work just like it should.</p></aside>
   <section>
     <h2>Current <abbr>UI</abbr> for choosing a payment type</h2>
     <img src="bankwest-before.png" alt="Screenshot of Bankwest online banking's create a payment screen" />
