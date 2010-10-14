@@ -29,6 +29,7 @@ use Rack::Rewrite do
   send_file '/bankwest-after.png', 'public/bankwest-after.png'
   send_file '/bankwest-before.png', 'public/bankwest-before.png'
   send_file '/pjb-banana.gif', 'public/pjb-banana.gif'
+  send_file '/illo.png', 'public/illo.png'
   send_file '/', 'public/index.html'
 
 end

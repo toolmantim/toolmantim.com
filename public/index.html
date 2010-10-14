@@ -9,23 +9,19 @@
   <script>try{Typekit.load();}catch(e){}</script>
   <!--[if lt IE 9]><script src='http://html5shiv.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
   <style>
-    html, body, h1, p { margin: 0; padding: 0; line-height: 1; }
-    body { font-family: 'proxima-nova-1', 'proxima-nova-2', 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: center; color: #444; position: absolute; height: 200px; top: 50%; margin-top: -50px; width: 100%; -webkit-animation: mess-with-their-minds 30s infinite; }
-    body, h1, b, p { font-weight: 100; }
-    h1 { margin-bottom: 18px; font-size: 30px; }
-      h1:hover b { display: none; }
-      h1:hover:after { content:'an actor-slash-model.'; }
-    p { font-size: 18px; color: #747474; }
-    a { font-weight: 400; color: #00ccff; text-decoration: none; }
-      a:hover { color: #fca000; }
-    @-webkit-keyframes mess-with-their-minds {
-      from { background-color: #fff;    }
-      20%  { background-color: #fffdf7; }
-      40%  { background-color: #f7fcff; }
-      60%  { background-color: #fef7ff; }
-      80%  { background-color: #fdf7ff; }
-      to   { background-color: #fff;    }
-    }
+    html, body, h1, p, ul, li, section { margin: 0; padding: 0; line-height: 1; }
+    body, h1, b, p { font-weight: normal; }
+    ul, li { display: inline; }
+    body { position: absolute; height: 448px; top: 50%; width: 100%; margin-top: -224px; font: Georgia, serif; }
+    section { position: relative; width: 550px; margin: 0 auto; padding-left: 360px; padding-top: 195px; }
+    section h1 { font: italic 34px 'Hoefler Text', 'Chaparral Pro', Georgia, serif; margin-bottom: 15px; }
+    section h1 em { color: #979797; }
+    section ul { font-size: 13px; text-transform: uppercase; margin-left: 18px; }
+    section ul li { border-left: 1px solid #979797; padding: 0 10px; margin-right: -2px; }
+    section ul li a { color: black; text-decoration: none; }
+    section ul li a:hover { border-bottom: 1px solid #979797; }
+    section ul li:first-child { border-left: none; padding-left: 0; }
+    section img { position: absolute; left: 0; top: 0; }
   </style>
   <script>
     window.onload = function() {
@@ -46,9 +42,15 @@
   </script>
   </head>
 <body>
-  
-  <h1>Hi, I’m Tim Lucas, <b data-reference="zoolander">a designer-slash-developer.</b></h1>
-  <p>Work with me at <a href='http://designedbyelement.com/'>element</a>, shoot me <a href='mailto:hello@THISDOMAIN'>an email</a> or <a href='http://twitter.com/toolmantim'>follow me</a> on twitter.</p>
-
+  <section>
+    <h1>Tim Lucas <em>professional nerd.</em></h1>
+    <img src="/illo.png" alt="Portrait of me, Tim Lucas" width="364" height="448">
+    <ul>
+      <li><a href="http://designedbyelement.com/">Hire me</a></li>
+      <li><a href="http://scrapbook.toolmantim.com/">Read me</a></li>
+      <li><a href="mailto:t.lucas@THISDOMAIN">Contact me</a></li>
+      <li><a href="http://twitter.com/toolmantim">Tweet me</a></li>
+    </ul>
+  </section>
 </body>
 </html>
