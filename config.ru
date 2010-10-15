@@ -25,11 +25,17 @@ use Rack::Rewrite do
     r302 %r{/#{path}/(.*)}, host + '/$1'
   end
   
-  send_file '/dear-bankwest', 'public/dear-bankwest.html'
-  send_file '/bankwest-after.png', 'public/bankwest-after.png'
-  send_file '/bankwest-before.png', 'public/bankwest-before.png'
-  send_file '/pjb-banana.gif', 'public/pjb-banana.gif'
-  send_file '/illo.png', 'public/illo.png'
+  [
+    'dear-bankwest',
+    'bankwest-after.png',
+    'bankwest-before.png',
+    'pjb-banana.gif',
+    'illo.png',
+    'html5.js',
+  ].each do |p|
+    send_file "/#{p}", "public/#{p}"
+  end
+  
   send_file '/', 'public/index.html'
 
 end

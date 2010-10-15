@@ -5,21 +5,21 @@
   <title>Hi, I'm Tim Lucas.</title>
   <link href='http://www.myopenid.com/server' rel='openid.server' />
   <link href='http://toolmantim.myopenid.com' rel='openid.delegate' />
-  <script src='http://use.typekit.com/giz5uom.js'></script>
-  <script>try{Typekit.load();}catch(e){}</script>
-  <!--[if lt IE 9]><script src='http://html5shiv.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
+  <!--[if lt IE 9]><script src='html5.js'></script><![endif]-->
   <style>
     html, body, h1, p, ul, li, section { margin: 0; padding: 0; line-height: 1; }
     body, h1, b, p { font-weight: normal; }
+    * { z-index: 1; }
+    img { z-index: -1; }
     ul, li { display: inline; }
-    body { position: absolute; height: 448px; top: 50%; width: 100%; margin-top: -224px; font: Georgia, serif; }
-    section { position: relative; width: 550px; margin: 0 auto; padding-left: 360px; padding-top: 195px; }
-    section h1 { font: italic 34px 'Hoefler Text', 'Chaparral Pro', Georgia, serif; margin-bottom: 15px; }
+    body { position: absolute; height: 448px; top: 50%; width: 100%; margin-top: -224px; }
+    section { position: relative; width: 550px; margin: 0 auto; padding-left: 365px; padding-top: 195px; }
+    section h1 { font: italic 33px 'Hoefler Text', 'Chaparral Pro', Georgia, serif; margin-bottom: 15px; }
     section h1 em { color: #979797; }
-    section ul { font-size: 13px; text-transform: uppercase; margin-left: 18px; }
-    section ul li { border-left: 1px solid #979797; padding: 0 10px; margin-right: -2px; }
+    section ul { font: 13px "adobe-text-pro-1", "adobe-text-pro-2", Georgia, serif; text-transform: uppercase; margin-left: 20px; }
+    section ul li { border-left: 1px solid #b7b7b7; padding: 0 8px; margin-right: -2px; }
     section ul li a { color: black; text-decoration: none; }
-    section ul li a:hover { border-bottom: 1px solid #979797; }
+    section ul li a:hover { color: #979797; }
     section ul li:first-child { border-left: none; padding-left: 0; }
     section img { position: absolute; left: 0; top: 0; }
   </style>
@@ -43,8 +43,8 @@
   </head>
 <body>
   <section>
-    <h1>Tim Lucas <em>professional nerd.</em></h1>
-    <img src="/illo.png" alt="Portrait of me, Tim Lucas" width="364" height="448">
+    <h1>Tim Lucas <em>designer developer</em></h1>
+    <img src="/illo.png" alt="Portrait of me, Tim Lucas" width="364" height="448" />
     <ul>
       <li><a href="http://designedbyelement.com/">Hire me</a></li>
       <li><a href="http://scrapbook.toolmantim.com/">Read me</a></li>
