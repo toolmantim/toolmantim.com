@@ -6,21 +6,17 @@ use Rack::Rewrite do
     %w( www.toolmantim.com ww.toolmantim.com ).include? rack_env['SERVER_NAME']
   }
 
-  r302 '/photos', 'http://flickr.com/photos/toolmantim/'
-  r302 %r{/photos/(\d+)}, 'http://flickr.com/photos/toolmantim/$1/'
+  r301 '/photos', 'http://flickr.com/photos/toolmantim/'
+  r301 %r{/photos/(\d+)}, 'http://flickr.com/photos/toolmantim/$1/'
 
-  r302 '/thoughts/setting_up_a_new_remote_git_repository', 'http://gist.github.com/569530'
+  r301 '/thoughts/setting_up_a_new_remote_git_repository', 'http://gist.github.com/569530'
 
   r301 %r{/articles/(.+)}, '/thoughts/$1'
 
-  r301 %r{.*}, 'http://scrapbook.toolmantim.com$&', :if => Proc.new {|env|
-    %w( tumble.toolmantim.com shoebox.toolmantim.com ).include? env['SERVER_NAME']
+  r301 %r{.*}, 'http://toolmantim.tumblr.com$&', :if => Proc.new {|env|
+    %w( notes.toolmantim.com notebook.toolmantim.com tumble.toolmantim.com shoebox.toolmantim.com ).include? env['SERVER_NAME']
   }
 
-  r301 %r{.*}, 'http://notebook.toolmantim.com$&', :if => Proc.new {|env|
-    env['SERVER_NAME'] == 'notes.toolmantim.com'
-  }
-  
   { "n" => "http://www.tumblr.com", "s" => "http://www.tumblr.com", "p" => "http://flickr.com/p" }.each_pair do |path, host|
     r302 %r{/#{path}/(.*)}, host + '/$1'
   end
