@@ -21,8 +21,14 @@ use Rack::Rewrite do
     r302 %r{/#{path}/(.*)}, host + '/$1'
   end
   
+  {
+    '/' => 'index.html',
+    '/dear-bankwest' => 'dear-bankwest.html'
+  }.each_pair do |url, file|
+    send_file url, "public/#{file}"
+  end
+
   [
-    'dear-bankwest',
     'bankwest-after.png',
     'bankwest-before.png',
     'pjb-banana.gif',
@@ -31,8 +37,6 @@ use Rack::Rewrite do
   ].each do |p|
     send_file "/#{p}", "public/#{p}"
   end
-  
-  send_file '/', 'public/index.html'
 
 end
 
