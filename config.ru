@@ -20,22 +20,15 @@ use Rack::Rewrite do
   { "n" => "http://www.tumblr.com", "s" => "http://www.tumblr.com", "p" => "http://flickr.com/p" }.each_pair do |path, host|
     r302 %r{/#{path}/(.*)}, host + '/$1'
   end
-  
-  {
-    '/' => 'index.html',
-    '/dear-bankwest' => 'dear-bankwest.html'
-  }.each_pair do |url, file|
-    send_file url, "public/#{file}"
+
+  # Public files
+  Dir["public/*"].each do |f|
+    send_file "/"+File.basename(f), f
   end
 
-  [
-    'bankwest-after.png',
-    'bankwest-before.png',
-    'pjb-banana.gif',
-    'illo.png',
-    'html5.js',
-  ].each do |p|
-    send_file "/#{p}", "public/#{p}"
+  # Pages
+  {'/' => 'index.html', '/dear-bankwest' => 'dear-bankwest.html'}.each_pair do |url, file|
+    send_file url, "public/#{file}"
   end
 
 end

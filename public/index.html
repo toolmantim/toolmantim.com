@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang='en-au'>
 <head>
   <meta charset='utf-8'>
@@ -7,23 +7,84 @@
   <link href='http://toolmantim.myopenid.com' rel='openid.delegate' />
   <!--[if lt IE 9]><script src='html5.js'></script><![endif]-->
   <style>
-    body { background-color: #f3f3f3; }
     html, body, h1, p, ul, li, section { margin: 0; padding: 0; line-height: 1; }
     body, h1, b, p { font-weight: normal; }
     * { z-index: 1; }
     img { z-index: -1; }
     ul, li { display: inline; list-style: none; }
-    body { position: absolute; height: 427px; top: 50%; width: 100%; margin-top: -224px; }
-    section { position: relative; width: 500px; margin: 0 auto; padding-left: 370px; padding-top: 195px; }
-    section h1 { font: italic 36px 'Hoefler Text', 'Chaparral Pro', Georgia, serif; margin-bottom: 15px; }
-    section h1 em { color: #979797; }
-    section ul { font: 13px "adobe-text-pro-1", "adobe-text-pro-2", Georgia, serif; text-transform: uppercase; }
-    section ul li { float: left; }
-    section ul li a { border-left: 1px solid #ddd; color: black; text-decoration: none; padding: 4px 10px; }
-    section ul li a:hover { background-color: white; }
-    section ul li:first-child { padding-left: 10px; }
+    html { height: 100%; width: 100%; }
+    body { height: 100%; width: 550px; width: 100%; background: #151515; color: white;
+      display: box; display: -moz-box; display: -webkit-box;
+      box-orient: vertical; -webkit-box-orient: vertical; -moz-box-orient: vertical;
+      box-pack: center; -webkit-box-pack: center; -moz-box-pack: center;
+      box-align: center; -webkit-box-align: center; -moz-box-align: center;
+    }
+    section { text-align: center; padding-top: 25px; position: relative; height: 550px; width: 550px; margin: 0 auto; background: transparent url(moon.jpg) -100000px -100000px no-repeat;
+      display: box; display: -moz-box; display: -webkit-box;
+      box-orient: vertical; -webkit-box-orient: vertical; -moz-box-orient: vertical;
+      box-pack: center; -webkit-box-pack: center; -moz-box-pack: center;
+      box-align: center; -webkit-box-align: center; -moz-box-align: center;
+      box-flex: 1; -webkit-box-flex: 1; -moz-box-flex: 1;
+    }
+    section h1 { font: italic 36px 'Hoefler Text', 'Chaparral Pro', Georgia, serif; margin-bottom: 15px; color: orange; }
+    section h1 em { color: #bbb; }
+    section ul { font: 13px "adobe-text-pro-1", "adobe-text-pro-2", Georgia, serif; text-transform: uppercase; text-align: center; }
+    section ul li { display: inline; }
+    section ul li a { color: #444; border-left: 1px solid #666; text-decoration: none; width: auto; padding: 0 10px; }
+    section ul li a:hover { color: #eee;}
     section ul li:first-child a { border-left: none; }
-    section img { position: absolute; left: 0; top: 0; }
+    .witch {
+      background: url(witch.png);
+      width: 269px;
+      height: 190px;
+      position: absolute;
+      top: 0;
+      left: -269px;
+      -webkit-animation-name: flying-witch;
+      -webkit-animation-duration: 20s;
+      -webkit-animation-iteration-count: 1;
+      -webkit-animation-timing-function: linear;
+      display: block;
+    }
+    @-webkit-keyframes flying-witch {
+      0% { -webkit-transform: translateX(0) translateY(0) scale(.7) }
+      11% { -webkit-transform: translateX(0) translateY(100px) scale(.7) }
+      20% { -webkit-transform: translateX(900px) translateY(180px) scale(.7) }
+      29% { -webkit-transform: translateX(900px) translateY(250px) scaleX(-1) }
+      35% { -webkit-transform: translateX(0) translateY(340px) scaleX(-1) }
+      46% { -webkit-transform: translateX(-1000px) translateY(300px) scale(5) }
+      50% { -webkit-transform: translateX(2000px) translateY(500px) scale(5) }
+      100% { -webkit-transform: translateX(2000px) translateY(500px) scale(5) }
+    }
+    section {
+      -webkit-animation: fade-content 20s 1 linear;
+    }
+    @-webkit-keyframes fade-content {
+      0% { opacity: 1; background-position: center center; }
+      47.6% { opacity: 1; background-position: center center; }
+      48.4% { opacity: 0; background-position: center center; }
+      60% { opacity: 0; }
+      80% { opacity: 1; }
+      100% { opacity: 1; background-position: -100000px -100000px; }
+    }
+    section h1 {
+      -webkit-animation: heading-color 20s 1 linear;
+    }
+    @-webkit-keyframes heading-color {
+      0% { color: white; }
+      48% { color: white; }
+      60% { color: orange; }
+      100% { }
+    }
+    section h1 em {
+      -webkit-animation: heading-em-color 20s 1 linear;
+    }
+    @-webkit-keyframes heading-em-color {
+      0% { color: #151515; }
+      48% { color: #151515; }
+      60% { }
+      100% { }
+    }
   </style>
   <script>
     window.onload = function() {
@@ -45,14 +106,14 @@
   </head>
 <body>
   <section>
-    <h1>Tim Lucas <em>designer/creator</em></h1>
-    <img src="/illo.png" alt="Portrait of me, Tim Lucas" width="367" height="427" />
+    <h1>Tim Lucas <em>designer/developer</em></h1>
     <ul>
       <li><a href="http://designedbyelement.com/">Hire me</a></li>
       <li><a href="http://toolmantim.tumblr.com/">Read me</a></li>
       <li><a href="mailto:t.lucas@THISDOMAIN">Contact me</a></li>
       <li><a href="http://twitter.com/toolmantim">Tweet me</a></li>
     </ul>
+    <div class="witch"></div>
   </section>
 </body>
 </html>
