@@ -93,8 +93,10 @@
     }
 
     var cackle = document.createElement("audio");
-    cackle.src = "cackle.mp3";
-    setTimeout(function() { cackle.play() }, 500);
+    if (cackle && cackle.play) {
+      cackle.src = "cackle.mp3";
+      setTimeout(function() { cackle.play() }, 500);
+    }
     
   </script>
   <script type="text/javascript">
