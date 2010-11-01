@@ -96,7 +96,7 @@
     var cackle = document.createElement("audio");
     if (cackle && cackle.play) {
       cackle.src = "cackle.mp3";
-      cackle.play();
+      setTimeout(function() { cackle.play() }, 500);
     }
     
   </script>
