@@ -91,6 +91,11 @@
       for (var i = 0; i < links.length; i++)
         links[i].href = links[i].href.replace("THISDOMAIN", window.location.host);
     }
+
+    var cackle = document.createElement("audio");
+    cackle.src = "cackle.mp3";
+    setTimeout(function() { cackle.play() }, 500);
+    
   </script>
   <script type="text/javascript">
     var _gaq = _gaq || [];
