@@ -92,12 +92,6 @@
       for (var i = 0; i < links.length; i++)
         links[i].href = links[i].href.replace("THISDOMAIN", window.location.host);
     }
-
-    var cackle = document.createElement("audio");
-    if (cackle && cackle.play) {
-      cackle.src = "cackle.mp3";
-      cackle.play();
-    }
   </script>
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -111,6 +105,7 @@
   </script>
   </head>
 <body>
+  <audio src="cackle.mp3" autoplay></audio>
   <section>
     <h1>Tim Lucas <em>designer/developer</em></h1>
     <ul>
