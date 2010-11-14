@@ -22,9 +22,10 @@ use Rack::Rewrite do
   end
 
   # Public files
-  Dir["public/*"].each do |f|
-    send_file "/"+File.basename(f), f
-  end
+  Dir.chdir("public") { Dir["**/*"].each {|f| send_file("/#{f}", "public/#{f}") if File.file?(f) } }
+
+  r301 '/halloween-2010', '/halloween-2010/'
+  send_file '/halloween-2010/', 'public/halloween-2010/index.html'
 
   # Pages
   {'/' => 'index.html', '/dear-bankwest' => 'dear-bankwest.html'}.each_pair do |url, file|
