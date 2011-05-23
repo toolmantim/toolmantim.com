@@ -1,0 +1,108 @@
+!!!
+%html
+  %head
+    %meta{charset:"utf-8"}
+    %title toolmantim.com
+    %style
+      :plain
+        html, body, h1 { margin: 0; padding: 0; }
+        html { font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; }
+        html, body { width: 100%; height: 100%; }
+        header {
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: white;
+          color: black;
+          display: inline-block;
+          padding: 11px 20px 12px 20px;
+          line-height: 24px;
+          -webkit-border-bottom-right-radius: 5px;
+          z-index: 2;
+        }
+        header > * {
+          display: inline;
+        }
+        header h1 {
+          font-size: 18px;
+          padding-right: 10px;
+          border-right: 1px solid #ccc;
+          margin-right: 6px;
+        }
+        header a {
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          background: #ccc;
+          overflow: hidden;
+          text-indent: -1000px;
+          margin: 0 0 0 3px;
+          border-radius: 3px;
+        }
+        header a:hover {
+          background: #aaa;
+        }
+        article {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: url('http://farm1.static.flickr.com/42/77592212_25b8d8c5e9_o.jpg') no-repeat;
+          -webkit-background-size: cover;
+          z-index: 1;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-box-orient: horizontal;
+          -webkit-box-pack: center;
+          -webkit-box-align: center;
+        }
+        article h1 {
+          width: 100%;
+          height: 400px;
+          text-align: center;
+          font-size: 220px;
+          line-height: 180px;
+          text-transform: uppercase;
+          color: white;
+        }
+        article h1 span {
+          display: block;
+        }
+        article footer {
+          position: absolute;
+          right: 25px;
+          bottom: 20px;
+        }
+        article footer a {
+          color: white;
+          text-decoration: none;
+          line-height: 14px;
+        }
+        article footer a span.photo {
+          font-size: 11px;
+          text-transform: uppercase;
+          color: #8c7155;
+        }
+        article footer a span.photo:after {
+          content: '|';
+          margin-left: 5px;
+          margin-right: 3px;
+          opacity: .5;
+          font-size: 14px;
+        }
+        article footer a span.name {
+          font-size: 14px;
+          color: #c58739;
+        }
+  %body
+    %header
+      %h1 toolmantim
+      %nav
+        %a.email{href:"mailto:t@thisdomain.com"} Email
+        %a.twitter{href:"http://twitter.com/toolmantim"} Twitter
+        %a.flickr{href:"http://flickr.com/photos/toolmantim"} Flickr
+        %a.github{href:"http://github.com/toolmantim"} Github
+        %a.dribbble{href:"http://dribbble.com/toolmantim"} Dribbble
+    %article
+      %h1 <span class='hello'>Hello</span> <span class='berlin'>Berlin</span>
+      %footer
+        %a{href:"http://flickr.com/"} <span class='photo'>Photo</span> <span class='name'>ioerror</span>

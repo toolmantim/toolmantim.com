@@ -21,20 +21,27 @@ use Rack::Rewrite do
     r302 %r{/#{path}/(.*)}, host + '/$1'
   end
 
-  # Public files
-  Dir.chdir("public") { Dir["**/*"].each {|f| send_file("/#{f}", "public/#{f}") if File.file?(f) } }
-
   r301 '/halloween-2010', '/halloween-2010/'
   send_file '/halloween-2010/', 'public/halloween-2010/index.html'
 
-  # Pages
-  {'/' => 'index.html', '/dear-bankwest' => 'dear-bankwest.html'}.each_pair do |url, file|
-    send_file url, "public/#{file}"
-  end
-
+  rewrite "/halloween-2010/", "/halloween-2010/index.html"
+  rewrite "/dear-bankwest/", "/dear-bankwest/index.html"
 end
 
-run lambda {|env|
-  body = File.read("public/404.html")
-  [404, {'Content-Type' => 'text/html', 'Content-Length' => body.size.to_s}, [body]]
-}
+require 'sinatra'
+
+set :views, Sinatra::Application.root
+
+get "/" do
+  redirect "/hello-berlin"
+end
+
+get "/hello-berlin" do
+  haml :"public/hello-berlin/index"
+end
+
+not_found do
+  send_file '404.html'
+end
+
+run Sinatra::Application
