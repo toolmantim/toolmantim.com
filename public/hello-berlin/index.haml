@@ -2,12 +2,14 @@
 %html
   %head
     %meta{charset:"utf-8"}
+    %meta{name:"viewport", content:"width=device-width, initial-scale=1.0"}
     %title toolmantim.com
     %style
       :plain
         html, body, h1 { margin: 0; padding: 0; }
         html { font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; }
         html, body { width: 100%; height: 100%; }
+        body { -webkit-text-size-adjust: none; }
         header {
           position: absolute;
           top: 0;
@@ -27,7 +29,7 @@
           font-size: 18px;
           padding-right: 10px;
           border-right: 1px solid #ccc;
-          margin-right: 6px;
+          margin-right: 5px;
         }
         header a {
           display: inline-block;
@@ -46,8 +48,11 @@
           position: absolute;
           width: 100%;
           height: 100%;
-          background: url('http://farm1.static.flickr.com/42/77592212_25b8d8c5e9_o.jpg') no-repeat;
+          min-height: 320px;
+          background: url('/hello-berlin/photo-large.jpg') 50% 0 no-repeat;
           -webkit-background-size: cover;
+          -moz-background-size: cover;
+          background-size: cover;
           z-index: 1;
           display: -webkit-box;
           -webkit-box-orient: vertical;
@@ -57,12 +62,13 @@
         }
         article h1 {
           width: 100%;
-          height: 400px;
+          font-size: 200px;
+          height: 360px;
           text-align: center;
-          font-size: 220px;
-          line-height: 180px;
+          line-height: .9;
           text-transform: uppercase;
           color: white;
+          outline: 1px solid white;
         }
         article h1 span {
           display: block;
@@ -80,19 +86,80 @@
         article footer a span.photo {
           font-size: 11px;
           text-transform: uppercase;
-          color: #8c7155;
-        }
-        article footer a span.photo:after {
-          content: '|';
-          margin-left: 5px;
-          margin-right: 3px;
-          opacity: .5;
-          font-size: 14px;
+          color: #cda675;
+          margin-right: 0.1em;
         }
         article footer a span.name {
           font-size: 14px;
-          color: #c58739;
+          color: #eea03e;
         }
+        
+        @media screen and (max-width: 1024px) {
+          article h1 {
+            font-size: 130px;
+            height: 240px;
+          }
+        }
+
+        @media screen and (max-width: 480px) {
+          article h1 {
+            font-size: 80px;
+            height: 145px;
+          }
+          article footer {
+            bottom: 10px;
+            right: 15px;
+          }
+        }
+        
+        @media screen and (max-width:480px), screen and (max-width:320px) {
+          article {
+            background-image: url('/hello-berlin/photo-small.jpg');
+          }
+          header {
+            padding: 5px 10px 6px 10px;
+          }
+          header h1 {
+            font-size: 14px;
+          }
+          article footer a span.photo {
+            font-size: 10px;
+          }
+          article footer a span.name {
+            font-size: 13px;
+          }
+        }
+
+        /* Shinier background for high-res devices */
+        @media screen and (max-width:480px) and (min-resolution: 300dpi), screen and (max-width:320px) and (min-resolution: 300dpi) {
+          article {
+            background: url('/hello-berlin/photo-large.jpg') no-repeat;
+          }
+        }
+        /* Webkit specific */
+        @media screen and (max-width:480px) and (-webkit-min-device-pixel-ratio: 2), screen and (max-width:320px) and (-webkit-min-device-pixel-ratio: 2) {
+          article {
+            background: url('/hello-berlin/photo-small@2x.jpg') no-repeat;
+          }
+        }
+        
+        @media screen and (max-width: 320px) {
+          header {
+            left: 25px;
+            -webkit-border-bottom-left-radius: 5px;
+          }
+          article h1 {
+            font-size: 60px;
+            height: 110px;
+          }
+          article footer {
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+          }
+        }
+
   %body
     %header
       %h1 toolmantim
@@ -105,4 +172,4 @@
     %article
       %h1 <span class='hello'>Hello</span> <span class='berlin'>Berlin</span>
       %footer
-        %a{href:"http://flickr.com/"} <span class='photo'>Photo</span> <span class='name'>ioerror</span>
+        %a{href:"http://flickr.com/"} <span class='photo'>Photo by</span> <span class='name'>ioerror</span>
