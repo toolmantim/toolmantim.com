@@ -75,23 +75,53 @@
         }
         article footer {
           position: absolute;
-          right: 25px;
-          bottom: 20px;
+          display: inline-block;
+          left: 0;
+          bottom: 2%;
+          width: 96%;
+          padding: 0 2%;
         }
-        article footer a {
+        article footer a, article footer a span {
+          -webkit-transition: all 200ms;
+          -moz-transition: all 200ms;
+          transition: all 200ms;
+        }
+        article footer a.cc {
+          float: left;
+          background-color: #fff6c5;
+          padding: 1px 2px;
+          border-radius: 8px;
+          line-height: 15px;
+          opacity: .8;
+        }
+        article footer a.cc:hover {
+          opacity: 1;
+        }
+        article footer a.cc img {
+          float: left;
+        }
+        article footer a.photo-cred {
+          float: right;
+          margin-top: -2px;
           color: white;
           text-decoration: none;
           line-height: 14px;
         }
-        article footer a span.photo {
+        article footer a.photo-cred span.photo {
           font-size: 11px;
           text-transform: uppercase;
           color: #cda675;
           margin-right: 0.1em;
         }
-        article footer a span.name {
+        article footer a.photo-cred:hover span.photo {
+          color: #fdd6a5;
+        }
+        article footer a.photo-cred span.name {
           font-size: 14px;
           color: #eea03e;
+        }
+        article footer a.photo-cred:hover span.name {
+          color: white;
         }
         
         @media screen and (max-width: 1024px) {
@@ -122,10 +152,10 @@
           header h1 {
             font-size: 14px;
           }
-          article footer a span.photo {
+          article footer a.photo-cred span.photo {
             font-size: 10px;
           }
-          article footer a span.name {
+          article footer a.photo-cred span.name {
             font-size: 13px;
           }
         }
@@ -139,7 +169,7 @@
         /* Webkit specific */
         @media screen and (max-width:480px) and (-webkit-min-device-pixel-ratio: 2), screen and (max-width:320px) and (-webkit-min-device-pixel-ratio: 2) {
           article {
-            background: url('/hello-berlin/photo-small@2x.jpg') no-repeat;
+            background: url('/hello-berlin/photo-large.jpg') no-repeat;
           }
         }
         
@@ -154,9 +184,6 @@
           }
           article footer {
             bottom: 10px;
-            left: 0;
-            right: 0;
-            text-align: center;
           }
         }
 
@@ -172,4 +199,7 @@
     %article
       %h1 <span class='hello'>Hello</span> <span class='berlin'>Berlin</span>
       %footer
-        %a{href:"http://flickr.com/"} <span class='photo'>Photo by</span> <span class='name'>ioerror</span>
+        %a.cc{href:"http://creativecommons.org/licenses/by-sa/2.0/"}
+          %img{src:"/hello-berlin/cc_icon_attribution_small.gif", alt:"Attribution"}
+          %img{src:"/hello-berlin/cc_icon_sharealike_small.gif", alt:"Share Alike"}
+        %a.photo-cred{href:"http://flickr.com/"} <span class='photo'>Photo by</span> <span class='name'>ioerror</span>
