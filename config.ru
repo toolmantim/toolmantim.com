@@ -29,8 +29,10 @@ use Rack::Rewrite do
 end
 
 require 'sinatra'
+require 'haml'
 
 set :views, Sinatra::Application.root
+set :haml, :format => :html5
 
 get "/" do
   redirect "/hello-berlin"
