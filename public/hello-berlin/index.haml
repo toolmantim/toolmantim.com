@@ -4,6 +4,8 @@
     %meta{charset:"utf-8"}
     %meta{name:"viewport", content:"width=device-width, initial-scale=1.0"}
     %title toolmantim.com
+    %script
+      document.documentElement.className = "animated";
     %style
       :plain
         html, body, h1 { margin: 0; padding: 0; }
@@ -59,19 +61,53 @@
           -webkit-box-orient: horizontal;
           -webkit-box-pack: center;
           -webkit-box-align: center;
+          overflow: hidden;
         }
         article h1 {
           width: 100%;
           font-size: 200px;
-          height: 360px;
           text-align: center;
           line-height: .9;
           text-transform: uppercase;
           color: white;
-          outline: 1px solid white;
+        }
+        article .line {
+          position: absolute;
+          height: 100%;
+          width: 80%;
+          left: 10%;
+          top: 0;
+          background: transparent url('/hello-berlin/white-line.png') 0 50% repeat-x;
+        }
+        .animated article .line {
+          width: 0;
+          -webkit-animation: line .75s 175ms linear forwards;
         }
         article h1 span {
           display: block;
+        }
+        .animated article span.hello {
+          overflow: hidden;
+          height: 0;
+          -webkit-animation: hello 400ms 1.1s forwards;
+        }
+        .animated article span.berlin {
+          overflow: hidden;
+          height: 0;
+          -webkit-animation: berlin 400ms 1.1s forwards;
+        }
+        article .plane {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          background: transparent url('/hello-berlin/plane.png') 88% 50% no-repeat;
+        }
+        .animated article .plane {
+          background-position-x: 0;
+          -webkit-transform: translate3d(-5%,0,0);
+          -webkit-animation: plane 1s linear forwards;
         }
         article footer {
           position: absolute;
@@ -127,14 +163,12 @@
         @media screen and (max-width: 1024px) {
           article h1 {
             font-size: 130px;
-            height: 240px;
           }
         }
 
         @media screen and (max-width: 480px) {
           article h1 {
             font-size: 80px;
-            height: 145px;
           }
           article footer {
             bottom: 10px;
@@ -180,13 +214,28 @@
           }
           article h1 {
             font-size: 60px;
-            height: 110px;
           }
           article footer {
             bottom: 10px;
           }
         }
 
+        @-webkit-keyframes plane {
+          from { -webkit-transform: translate3d(-5%,0,0); }
+          to   { -webkit-transform: translate3d(105%,0,0);  }
+        }
+        @-webkit-keyframes line {
+          from { width: 0%; }
+          to   { width: 80%; }
+        }
+        @-webkit-keyframes hello {
+          from { height: 0; }
+          to   { height: 200px; }
+        }
+        @-webkit-keyframes berlin {
+          from { height: 0; }
+          to   { height: 200px; }
+        }
   %body
     %header
       %h1 toolmantim
@@ -198,6 +247,8 @@
         %a.dribbble{href:"http://dribbble.com/toolmantim"} Dribbble
     %article
       %h1 <span class='hello'>Hello</span> <span class='berlin'>Berlin</span>
+      .plane
+      .line
       %footer
         %a.cc{href:"http://creativecommons.org/licenses/by-sa/2.0/"}
           %img{src:"/hello-berlin/cc_icon_attribution_small.gif", alt:"Attribution"}
