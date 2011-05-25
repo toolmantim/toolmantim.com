@@ -35,11 +35,11 @@ set :views, Sinatra::Application.root
 set :haml, :format => :html5
 
 get "/" do
-  redirect "/hello-berlin"
+  redirect "/hallo-berlin"
 end
 
-get "/hello-berlin" do
-  haml :"public/hello-berlin/index"
+get "/hallo-berlin" do
+  haml :"public/hallo-berlin/index"
 end
 
 not_found do

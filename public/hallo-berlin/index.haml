@@ -7,7 +7,7 @@
     %script
       :plain
         document.documentElement.className = "animated";
-        setTimeout(function() { document.documentElement.className += " animating"; }, 2000);
+        setTimeout(function() { document.documentElement.className += " animating"; }, 1500);
     %style
       :plain
         html, body, h1 { margin: 0; padding: 0; }
@@ -53,7 +53,7 @@
           width: 100%;
           height: 100%;
           min-height: 320px;
-          background: url('/hello-berlin/photo-large.jpg') 50% 0 no-repeat;
+          background: url('/hallo-berlin/photo-large.jpg') 50% 0 no-repeat;
           -webkit-background-size: cover;
           -moz-background-size: cover;
           background-size: cover;
@@ -78,7 +78,7 @@
           width: 80%;
           left: 10%;
           top: 0;
-          background: transparent url('/hello-berlin/white-line.png') 0 50% repeat-x;
+          background: transparent url('/hallo-berlin/white-line.png') 0 50% repeat-x;
         }
         .animated article .line {
           opacity: 0;
@@ -124,7 +124,7 @@
           left: 0;
           height: 100%;
           width: 100%;
-          background: transparent url('/hello-berlin/plane.png') 90% 50% no-repeat;
+          background: transparent url('/hallo-berlin/plane.png') 90% 50% no-repeat;
         }
         .animated article .plane {
           background-position-x: 0;
@@ -193,7 +193,7 @@
         
         @media screen and (max-width:480px), screen and (max-width:320px) {
           article {
-            background-image: url('/hello-berlin/photo-small.jpg');
+            background-image: url('/hallo-berlin/photo-small.jpg');
           }
           header {
             padding: 5px 10px 6px 10px;
@@ -209,13 +209,13 @@
         /* Shinier background for high-res devices */
         @media screen and (max-width:480px) and (min-resolution: 300dpi), screen and (max-width:320px) and (min-resolution: 300dpi) {
           article {
-            background: url('/hello-berlin/photo-large.jpg') no-repeat;
+            background: url('/hallo-berlin/photo-large.jpg') no-repeat;
           }
         }
         /* Webkit specific */
         @media screen and (max-width:480px) and (-webkit-min-device-pixel-ratio: 2), screen and (max-width:320px) and (-webkit-min-device-pixel-ratio: 2) {
           article {
-            background: url('/hello-berlin/photo-large.jpg') no-repeat;
+            background: url('/hallo-berlin/photo-large.jpg') no-repeat;
           }
         }
         
@@ -231,7 +231,7 @@
 
         @-webkit-keyframes plane {
           from { opacity: 1; -webkit-transform: translate3d(-10%,0,0); }
-          to   { opacity: 1; -webkit-transform: translate3d(88%,0,0);  }
+          to   { opacity: 1; -webkit-transform: translate3d(87.5%,0,0);  }
         }
         @-webkit-keyframes line {
           from { opacity: 0; -webkit-transform: translateZ(0) scaleX(0); }
@@ -258,13 +258,13 @@
     %article
       %h1
         %span.hallo
-          %img{src:"/hello-berlin/hallo.png", alt:"Hallo"}
+          %img{src:"/hallo-berlin/hallo.png", alt:"Hallo"}
         %span.berlin
-          %img{src:"/hello-berlin/berlin.png", alt:"Berlin"}
+          %img{src:"/hallo-berlin/berlin.png", alt:"Berlin"}
       .plane
       .line
       %footer
         %a.cc{href:"http://creativecommons.org/licenses/by-sa/2.0/"}
-          %img{src:"/hello-berlin/cc_icon_attribution_small.gif", alt:"Attribution"}
-          %img{src:"/hello-berlin/cc_icon_sharealike_small.gif", alt:"Share Alike"}
+          %img{src:"/hallo-berlin/cc_icon_attribution_small.gif", alt:"Attribution"}
+          %img{src:"/hallo-berlin/cc_icon_sharealike_small.gif", alt:"Share Alike"}
         %a.photo-cred{href:"http://flickr.com/"} <span class='photo'>Photo by</span> <span class='name'>ioerror</span>
