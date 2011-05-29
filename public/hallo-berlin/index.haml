@@ -10,6 +10,28 @@
         setTimeout(function() { document.documentElement.className += " animating"; }, 1500);
     %style
       :plain
+        /*
+         * MyFonts Webfont Build ID 826852, 2011-05-29T09:22:38-0400
+         * 
+         * The fonts listed in this notice are subject to the End User License
+         * Agreement(s) entered into by the website owner. All other parties are 
+         * explicitly restricted from using the Licensed Webfonts(s).
+         * 
+         * You may obtain a valid license at the URLs below.
+         * 
+         * Webfont: Erbar URW Bold
+         * URL: http://new.myfonts.com/fonts/urw/erbar/bold/
+         * Foundry: URW++
+         * Copyright: none
+         * License: http://www.myfonts.com/viewlicense?1056
+         * Licensed pageviews: 20,000/month
+         * CSS font-family: ErbarURW-Bold
+         * CSS font-weight: normal
+         * 
+         * (c) 2011 Bitstream Inc
+        */
+        @font-face {font-family: 'ErbarURW-Bold';src: url('/hallo-berlin/webfonts/eot/style_176568.eot');src: url('/hallo-berlin/webfonts/eot/style_176568.eot?#iefix') format('embedded-opentype'),url('/hallo-berlin/webfonts/woff/style_176568.woff') format('woff'),url('/hallo-berlin/webfonts/ttf/style_176568.ttf') format('truetype'),url('/hallo-berlin/webfonts/svg/style_176568.svg#ErbarURW-Bold') format('svg');}
+      
         html, body, h1 { margin: 0; padding: 0; }
         html { font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; }
         html, body { width: 100%; height: 100%; }
@@ -68,9 +90,15 @@
         article h1 {
           width: 100%;
           text-align: center;
-          line-height: .9;
           text-transform: uppercase;
           color: white;
+          font: 190px/1 ErbarURW-Bold;
+        }
+        article h1 .hallo {
+          text-transform: lowercase;
+        }
+        article h1 .berlin {
+          text-transform: uppercase;
         }
         article .line {
           position: absolute;
@@ -97,26 +125,23 @@
           margin: 0 auto;
           overflow: hidden;
         }
-        article h1 img {
+        article h1 span {
           width: 100%;
         }
-        .animated article h1 .hallo img {
-          opacity: 0;
-        }
-        .animating article h1 .hallo img {
+        .animating article h1 .hallo span {
           -webkit-animation: hallo .5s 1s forwards;
         }
-        article h1 .hallo img {
-          margin-bottom: 3%;
-        }
-        .animated article h1 .berlin img {
+        .animated article h1 .hallo span {
           opacity: 0;
         }
-        .animating article h1 .berlin img {
-          -webkit-animation: berlin .5s 1.5s forwards;
+        article h1 .hallo span {
+          margin-bottom: 0;
         }
-        article h1 .berlin img {
-          margin-top: 3%;
+        .animated article h1 .berlin span {
+          opacity: 0;
+        }
+        .animating article h1 .berlin span {
+          -webkit-animation: berlin .5s 1.5s forwards;
         }
         article .plane {
           position: absolute;
@@ -258,13 +283,14 @@
     %article
       %h1
         %span.hallo
-          %img{src:"/hallo-berlin/hallo.png", alt:"Hallo"}
+          %span Hallo
         %span.berlin
-          %img{src:"/hallo-berlin/berlin.png", alt:"Berlin"}
+          %span Berlin
+      / F'only we could animate :before and :after pseudo-elements
       .plane
       .line
       %footer
         %a.cc{href:"http://creativecommons.org/licenses/by-sa/2.0/"}
-          %img{src:"/hallo-berlin/cc_icon_attribution_small.gif", alt:"Attribution"}
-          %img{src:"/hallo-berlin/cc_icon_sharealike_small.gif", alt:"Share Alike"}
+          %img{src:"data:image/gif;base64,R0lGODlhDwAPAMQRAP///6msrtTV1tna28TGx+np6rO2uM7Q0cnLzL/Bwt/g4fr6+urq666xs7m7veTl5rm8vf///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAABEALAAAAAAPAA8AAAVnYCSOZEkyRBM0BGNGSGAcwmEEyELGAuD7A9yIEegBCoECMPAQEQw/pNJnIIgCh5/WJwhcjYCA+Nf9/g5YsjfyjCZ/joRIERj8Ar+gYkSob4NyIwt9BgIDAg4BCTolCgliARB7L5QjIQA7", alt:"Attribution"}
+          %img{src:"data:image/gif;base64,R0lGODlhDwAPAMQWAKmsrv///9TV1rO2uMTGx9na27/Bwt/g4b7AwsnLzO7v766xs97f4Pr6+uTl5eTl5s7Q0fT09Orq67m7vcPFx+nq6v///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAABYALAAAAAAPAA8AAAVyoCWOZEkeBqAah9kQwCDME2A0JFwEPF/YowNgxxjEdr+WhTAIRACLhNERGBhEAEGAAkgEFABEQADAahUDBS88LluyAQaCChaTRcxAJSYwMqoEIg9wZFBaSSMJcD1tgSSKAxACEEYEOCUSBAtQBA8mnyYhADs=", alt:"Share Alike"}
         %a.photo-cred{href:"http://flickr.com/"} <span class='photo'>Photo by</span> <span class='name'>ioerror</span>

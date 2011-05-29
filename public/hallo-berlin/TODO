@@ -1,0 +1,10 @@
+* Change to webfonts http://new.myfonts.com/fonts/urw/erbar/bold/
+* Replace line bg image with background image size
+* Change JS to use feature detection
+* Change plane to data-uri'd SVG
+* Add network icons (data-uri'd, 2x size and scaled down 50% for retina)
+* Add sexy tooltips for different social sites
+* Add IE shiv for HTML5 elements
+* Change JS to trigger animating when everything's loaded
+* Add favicon
+* Add Google Analytics
