@@ -34,6 +34,16 @@ require 'haml'
 set :views, Sinatra::Application.root
 set :haml, :format => :html5
 
+require "./datafy"
+
+helpers do
+  def data_uri(f)
+    ext = File.extname(f)
+    content = File.read(File.join(settings.public, f))
+    Datafy.make_data_uri(content, mime_type(ext))
+  end
+end
+
 get "/" do
   redirect "/hallo-berlin"
 end

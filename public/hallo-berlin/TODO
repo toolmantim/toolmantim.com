@@ -1,6 +1,4 @@
-* Replace TODO webkit animation support detection
 * Create plane SVG
-* Change plane to data-uri'd SVG
 * Add network icons (data-uri'd, 2x size and scaled down 50% for retina)
 * Add sexy tooltips for different social sites
 * Add IE shiv for HTML5 elements

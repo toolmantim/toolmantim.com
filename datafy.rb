@@ -232,7 +232,7 @@ if __FILE__ == $0 # don't polute the namespace with help
       help(1)
     end
 
-    puts Datafy.make_data_uri(content, content_type)
+    print Datafy.make_data_uri(content, content_type)
   else
     begin
       page, = Datafy.decode_data_uri(Datafy.page_to_data_uri(url))
