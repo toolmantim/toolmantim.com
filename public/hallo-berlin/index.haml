@@ -6,22 +6,24 @@
     %title toolmantim.com
     %script
       :plain
-        function supportsWebkitAnimation() {
+        (function() {
           var e = document.createElement("div");
           e.style["-webkit-animation"] = "abc 1s";
-          return e.style["-webkit-animation-name"];
-        }
-        if (supportsWebkitAnimation()) {
-          // TODO: Detect webkit-animation support, as well as webfont and background image loading.
-          document.documentElement.className = "animated";
-          setTimeout(function() { document.documentElement.className += " animating"; }, 1500);
-        }
+          if (e.style["-webkit-animation-name"])
+            document.documentElement.className = "animations";
+        })();
+
         // Bug fix for Safari animation forwards not recalculating % values
-        document.addEventListener("webkitAnimationEnd", function(e) {
+        window.addEventListener("webkitAnimationEnd", function(e) {
           if (e.animationName == "berlin") document.documentElement.className = "";
         }, false);
-        document.addEventListener("load", function() {
-          console.log("Ready!");
+
+        window.addEventListener("load", function() {
+          var a = document.getElementsByTagName("article")[0];
+          // TODO: Get background image using computed style
+          // Load that sucker
+          // When it loads, fire this sucker:
+          document.documentElement.className += " loaded";
         }, false);
     %style
       :plain
@@ -56,7 +58,7 @@
       
         html, body, h1, header, nav { margin: 0; padding: 0; }
         html { font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; }
-        html, body { width: 100%; height: 100%; }
+        html, body { width: 100%; height: 100%; background-color: #571B0E; }
         body { -webkit-text-size-adjust: none; }
         header {
           position: absolute;
@@ -157,29 +159,29 @@
           margin-top: -1px;
           background-color: white;
         }
-        .animated article .line {
+        .animations article .line {
           opacity: 0;
           -webkit-transform-origin: center left;
         }
-        .animating article .line {
+        .animations.loaded article .line {
           -webkit-animation: line 800ms ease-out forwards;
         }
         article h1 .hallo span {
           margin-bottom: 3%;
         }
-        .animating article h1 .hallo span {
-          -webkit-animation: hallo 500ms 700ms forwards;
-        }
-        .animated article h1 .hallo span {
+        .animations article h1 .hallo span {
           opacity: 0;
+        }
+        .animations.loaded article h1 .hallo span {
+          -webkit-animation: hallo 500ms 700ms forwards;
         }
         article h1 .berlin span {
           margin-top: 3%;
         }
-        .animated article h1 .berlin span {
+        .animations article h1 .berlin span {
           opacity: 0;
         }
-        .animating article h1 .berlin span {
+        .animations.loaded article h1 .berlin span {
           -webkit-animation: berlin 500ms 1.1s forwards;
         }
         article .plane {
@@ -190,11 +192,11 @@
           width: 100%;
           background: transparent url('/hallo-berlin/plane.png') 90% 50% no-repeat;
         }
-        .animated article .plane {
+        .animations article .plane {
           background-position-x: 0;
           opacity: 0;
         }
-        .animating article .plane {
+        .animations.loaded article .plane {
           -webkit-animation: plane 800ms ease-out forwards;
         }
         article footer {
