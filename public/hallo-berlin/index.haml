@@ -49,8 +49,8 @@
         */
         @font-face {
           font-family: 'ErbarURW-Bold';
-          src: url('/hallo-berlin/erbar-hallo-berlin.eot');
-          src: url('/hallo-berlin/erbar-hallo-berlin.eot?#iefix') format('embedded-opentype'),
+          src: url('erbar-hallo-berlin.eot');
+          src: url('erbar-hallo-berlin.eot?#iefix') format('embedded-opentype'),
                url(#{data_uri('hallo-berlin/webfonts/erbar.woff', 'font/woff')}) format('woff'),
                url(#{data_uri('hallo-berlin/webfonts/erbar.ttf', 'font/tff')}) format('truetype'),
                url(#{data_uri('hallo-berlin/webfonts/erbar.svg')}) format('svg');
@@ -138,7 +138,7 @@
           width: 100%;
           height: 100%;
           min-height: 320px;
-          background: url('/hallo-berlin/photo-large.jpg') 50% 0 no-repeat;
+          background: url('photo-large.jpg') 50% 0 no-repeat;
           -webkit-background-size: cover;
           -moz-background-size: cover;
           background-size: cover;
@@ -295,7 +295,7 @@
         
         @media screen and (max-width:480px), screen and (max-width:320px) {
           article {
-            background-image: url('/hallo-berlin/photo-small.jpg');
+            background-image: url('photo-small.jpg');
           }
           header {
             padding: 5px 10px 6px 10px;
@@ -311,13 +311,13 @@
         /* Shinier background for high-res devices */
         @media screen and (max-width:480px) and (min-resolution: 300dpi), screen and (max-width:320px) and (min-resolution: 300dpi) {
           article {
-            background: url('/hallo-berlin/photo-large.jpg') no-repeat;
+            background: url('photo-large.jpg') no-repeat;
           }
         }
         /* Webkit specific */
         @media screen and (max-width:480px) and (-webkit-min-device-pixel-ratio: 2), screen and (max-width:320px) and (-webkit-min-device-pixel-ratio: 2) {
           article {
-            background: url('/hallo-berlin/photo-large.jpg') no-repeat;
+            background: url('photo-large.jpg') no-repeat;
           }
         }
         
@@ -351,7 +351,7 @@
           from { opacity: 1; -webkit-transform: translateY(-120%); }
           to   { opacity: 1; -webkit-transform: translateY(0); }
         }
-    %link{rel:"shortcut icon", href:"/hallo-berlin/favicon.gif", type:"image/gif"}
+    %link{rel:"shortcut icon", href:"favicon.gif", type:"image/gif"}
   %body
     %header
       %h1 toolmantim
