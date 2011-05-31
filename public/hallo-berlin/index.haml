@@ -98,11 +98,14 @@
           height: 24px;
           text-indent: -1000px;
           float:left;
-          opacity: .4;
+          opacity: .3;
           -webkit-transition: opacity 120ms linear;
           -moz-transition: opacity 120ms linear;
           transition: opacity 120ms linear;
           text-decoration: none;
+          background-size: 100%;
+          -webkit-background-size: 100%;
+          -moz-background-size: 100%;
         }
         header a + a {
           margin-left: 5px;
@@ -149,21 +152,18 @@
           -moz-background-size: cover;
           background-size: cover;
           z-index: 1;
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          -webkit-box-orient: horizontal;
-          -webkit-box-pack: center;
-          -webkit-box-align: center;
-          display: -moz-box;
-          -moz-box-orient: vertical;
-          -moz-box-orient: horizontal;
-          -moz-box-pack: center;
-          -moz-box-align: center;
           display: box;
-          box-orient: vertical;
+          display: -webkit-box;
+          display: -moz-box;
           box-orient: horizontal;
-          box-pack: center;
+          -webkit-box-orient: horizontal;
+          -moz-box-orient: horizontal;
+          -webkit-box-align: center;
+          -moz-box-align: center;
           box-align: center;
+          -webkit-box-pack: center;
+          -moz-box-pack: center;
+          box-pack: center;
           overflow: hidden;
         }
         article h1 {
@@ -313,7 +313,6 @@
           header nav a {
             width: 18px;
             height: 18px;
-            background-size: 18px;
           }
           header nav a:hover:after {
             top: 30px;

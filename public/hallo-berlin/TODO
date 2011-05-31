@@ -1,3 +1,2 @@
-* Add PNG fallback for IE8
-* Add IE shiv for HTML5 elements
-* Add flexbox fallback
+* IE support
+* Firefox support
