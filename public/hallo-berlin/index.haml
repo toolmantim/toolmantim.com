@@ -89,18 +89,21 @@
           border-right: 1px solid #ccc;
         }
         header a {
+          position: relative;
           width: 24px;
           height: 24px;
-          overflow: hidden;
           text-indent: -1000px;
           float:left;
           opacity: .3;
+          -webkit-transition: opacity 120ms linear;
+          -moz-transition: opacity 120ms linear;
+          transition: opacity 120ms linear;
         }
         header a + a {
           margin-left: 5px;
         }
         header a:hover {
-          opacity: .7;
+          opacity: 1;
         }
         header a.email {
           background-image: url(#{data_uri('hallo-berlin/nav-icons/email.svg')});
@@ -116,6 +119,19 @@
         }
         header a.dribbble {
           background-image: url(#{data_uri('hallo-berlin/nav-icons/dribbble.svg')});
+        }
+        header a:hover:after {
+          content: attr(title);
+          position: absolute;
+          top: 40px;
+          left: -88px;
+          width: 200px;
+          color: white;
+          font-size: 11px;
+          font-weight: bold;
+          text-align: center;
+          text-indent: 0;
+          text-transform: uppercase;
         }
         article {
           position: absolute;
@@ -203,7 +219,7 @@
           left: 0;
           height: 100%;
           width: 100%;
-          background: transparent url(#{data_uri('hallo-berlin/plane.png')}) 90% 50% no-repeat;
+          background: transparent url(#{data_uri('hallo-berlin/plane.svg')}) 90% 50% no-repeat;
         }
         .animations article .plane {
           background-position-x: 0;
@@ -335,15 +351,16 @@
           from { opacity: 1; -webkit-transform: translateY(-120%); }
           to   { opacity: 1; -webkit-transform: translateY(0); }
         }
+    %link{rel:"shortcut icon", href:"/hallo-berlin/favicon.gif", type:"image/gif"}
   %body
     %header
       %h1 toolmantim
       %nav
-        %a.email{href:"mailto:t@thisdomain.com"} Email
-        %a.twitter{href:"http://twitter.com/toolmantim"} Twitter
-        %a.flickr{href:"http://flickr.com/photos/toolmantim"} Flickr
-        %a.github{href:"http://github.com/toolmantim"} Github
-        %a.dribbble{href:"http://dribbble.com/toolmantim"} Dribbble
+        %a.email{href:"mailto:t@thisdomain.com", title:"Email"} Email
+        %a.twitter{href:"http://twitter.com/toolmantim", title:"Twitter"} Twitter
+        %a.flickr{href:"http://flickr.com/photos/toolmantim", title:"Flickr"} Flickr
+        %a.github{href:"http://github.com/toolmantim", title:"Github"} Github
+        %a.dribbble{href:"http://dribbble.com/toolmantim", title:"Dribble"} Dribbble
     %article
       %h1
         %span.hallo

@@ -1,6 +1,6 @@
-* Create plane SVG
-* Add network icons (data-uri'd, 2x size and scaled down 50% for retina)
-* Add sexy tooltips for different social sites
-* Add IE shiv for HTML5 elements
 * Add favicon
 * Add Google Analytics
+
+* Add IE shiv for HTML5 elements
+* Add PNG fallback for IE8
+* Add flexbox fallback
