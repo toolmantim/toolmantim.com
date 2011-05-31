@@ -37,10 +37,9 @@ set :haml, :format => :html5
 require "./datafy"
 
 helpers do
-  def data_uri(f)
-    ext = File.extname(f)
-    content = File.read(File.join(settings.public, f))
-    Datafy.make_data_uri(content, mime_type(ext))
+  def data_uri(f, content_type=mime_type(File.extname(f)))
+    Datafy.make_data_uri File.read(File.join(settings.public, f)),
+                         content_type
   end
 end
 
