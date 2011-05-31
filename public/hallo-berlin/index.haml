@@ -6,6 +6,7 @@
     %title toolmantim.com
     %script
       :plain
+        // Feature detect webkit animation support
         (function() {
           var e = document.createElement("div");
           e.style["-webkit-animation"] = "abc 1s";
@@ -13,13 +14,16 @@
             document.documentElement.className = "animations";
         })();
 
-        // Bug fix for Safari animation forwards not recalculating % values
+        // Turn off animation class after last animation finishes, as a bug fix
+        // for Safari animation forwards not recalculating % values
         window.addEventListener("webkitAnimationEnd", function(e) {
           if (e.animationName == "berlin") document.documentElement.className = "";
         }, false);
 
+        // Add "loaded" class once background image has loading
         window.addEventListener("load", function() {
           var a = document.getElementsByTagName("article")[0];
+          // Background image changes with @media styles
           // TODO: Get background image using computed style
           // Load that sucker
           // When it loads, fire this sucker:
@@ -94,10 +98,11 @@
           height: 24px;
           text-indent: -1000px;
           float:left;
-          opacity: .3;
+          opacity: .4;
           -webkit-transition: opacity 120ms linear;
           -moz-transition: opacity 120ms linear;
           transition: opacity 120ms linear;
+          text-decoration: none;
         }
         header a + a {
           margin-left: 5px;
@@ -132,6 +137,7 @@
           text-align: center;
           text-indent: 0;
           text-transform: uppercase;
+          text-shadow: 0 1px 0 black;
         }
         article {
           position: absolute;
@@ -298,7 +304,19 @@
             background-image: url('photo-small.jpg');
           }
           header {
-            padding: 5px 10px 6px 10px;
+            padding: 8px 16px;
+          }
+          header h1 {
+            font-size: 14px;
+            line-height: 18px;
+          }
+          header nav a {
+            width: 18px;
+            height: 18px;
+            background-size: 18px;
+          }
+          header nav a:hover:after {
+            top: 30px;
           }
           article footer a.photo-cred span.photo {
             font-size: 10px;
@@ -353,6 +371,7 @@
         }
     %link{rel:"shortcut icon", href:"favicon.gif", type:"image/gif"}
   %body
+  
     %header
       %h1 toolmantim
       %nav
@@ -361,17 +380,31 @@
         %a.flickr{href:"http://flickr.com/photos/toolmantim", title:"Flickr"} Flickr
         %a.github{href:"http://github.com/toolmantim", title:"Github"} Github
         %a.dribbble{href:"http://dribbble.com/toolmantim", title:"Dribble"} Dribbble
+        
     %article
       %h1
         %span.hallo
           %span Hallo
         %span.berlin
           %span Berlin
+          
       / Wouldn't need these if could animate :before and :after pseudo-elements
       .plane
       .line
+      
       %footer
         %a.cc{href:"http://creativecommons.org/licenses/by-sa/2.0/"}
           %img{src:data_uri("hallo-berlin/cc-attribution.gif"), alt:"Attribution"}
           %img{src:data_uri("hallo-berlin/cc-share-alike.gif"), alt:"Share Alike"}
         %a.photo-cred{href:"http://flickr.com/"} <span class='photo'>Photo by</span> <span class='name'>ioerror</span>
+        
+    %script
+      :plain
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-196014-3']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
