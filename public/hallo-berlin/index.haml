@@ -3,44 +3,8 @@
   %head
     %meta{charset:"utf-8"}
     %meta{name:"viewport", content:"width=device-width, initial-scale=1.0"}
-    %title toolmantim.com
     %link{rel:"shortcut icon", href:"favicon.gif", type:"image/gif"}
-    %script
-      :plain
-        (function() {
-          if (!window.addEventListener) return;
-        
-          var docElem = document.documentElement;
-
-          // Feature detect webkit animation support
-          var animations = (function() {
-            var e = document.createElement("div");
-            e.style["-webkit-animation"] = "abc 1s";
-            if (e.style["-webkit-animation-name"]) {
-              docElem.className = "animations";
-              return true;
-            }
-          })();
-          
-          // Fix Safari animation forwards not recalculating % values by turning
-          // off animation class after last animation finishes.
-          window.addEventListener("webkitAnimationEnd", function(e) {
-            if (e.animationName == "berlin") docElem.className = "";
-          }, false);
-
-          // Add "loaded" class for animations once background image has loaded
-          if (animations) {
-            window.addEventListener("load", function() {
-              // Background image changes with @media styles
-              var bgUrl = getComputedStyle(document.querySelector("article")).backgroundImage,
-                  bgImg = bgUrl.match(/^url\((.*)\)$/)[1],
-                  img = document.createElement("img");
-              img.addEventListener("load", function() { docElem.className += " loaded"; }, false)
-              img.setAttribute("src", bgImg);
-            }, false);
-          }
-        
-        })();
+    %title toolmantim.com
     %style
       :plain
         /*
@@ -74,7 +38,7 @@
         html, body, h1, header, nav { margin: 0; padding: 0; }
         html { font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; background-color: #571B0E; }
         html, body, article { width: 100%; height: 100%; }
-        /* display:block unknown elements */
+        /* display:block new HTML5 elements */
         header, nav, article, footer { display: block; }
         body { -webkit-text-size-adjust: none; }
         a img { border: none; }
@@ -405,12 +369,66 @@
             margin-top: -142px;
             height: 285px;
           }
+          
+    %script
+      :plain
+        (function() {
+          if (!window.addEventListener) return;
+
+          var docElem = document.documentElement;
+
+          // Feature detect webkit animation support
+          var animations = (function() {
+            var e = document.createElement("div");
+            e.style["-webkit-animation"] = "abc 1s";
+            if (e.style["-webkit-animation-name"]) {
+              docElem.className = "animations";
+              return true;
+            }
+          })();
+
+          // Fix Safari animation forwards not recalculating % values by turning
+          // off animation class after last animation finishes.
+          window.addEventListener("webkitAnimationEnd", function(e) {
+            if (e.animationName == "berlin") docElem.className = "";
+          }, false);
+
+          // Add "loaded" class for animations once background image has loaded
+          if (animations) {
+            window.addEventListener("load", function() {
+              // Background image changes with @media styles
+              var bgUrl = getComputedStyle(document.querySelector("article")).backgroundImage,
+                  bgImg = bgUrl.match(/^url\((.*)\)$/)[1],
+                  img = document.createElement("img");
+              img.addEventListener("load", function() { docElem.className += " loaded"; }, false)
+              img.setAttribute("src", bgImg);
+            }, false);
+          }
+
+        })();
+
+        // Unobfuscate email links
+        window.onload = function() {
+          var links = document.getElementsByTagName("a");
+          for (var i = 0; i < links.length; i++)
+            links[i].href = links[i].href.replace("THISDOMAIN", window.location.host);
+        }
+        
+        // Analytics
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-196014-3']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
   %body
   
     %header
       %h1 toolmantim
       %nav
-        %a.email{href:"mailto:t@thisdomain.com", title:"Email"} Email
+        %a.email{href:"mailto:t@THISDOMAIN", title:"Email"} Email
         %a.twitter{href:"http://twitter.com/toolmantim", title:"Twitter"} Twitter
         %a.flickr{href:"http://flickr.com/photos/toolmantim", title:"Flickr"} Flickr
         %a.github{href:"http://github.com/toolmantim", title:"Github"} Github
@@ -432,14 +450,3 @@
           %img{src:data_uri("hallo-berlin/cc-attribution.gif"), alt:"Attribution"}
           %img{src:data_uri("hallo-berlin/cc-share-alike.gif"), alt:"Share Alike"}
         %a.photo-cred{href:"http://flickr.com/"} <span class='photo'>Photo by</span> <span class='name'>ioerror</span>
-        
-    %script
-      :plain
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-196014-3']);
-        _gaq.push(['_trackPageview']);
-        (function() {
-          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
