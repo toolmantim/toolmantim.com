@@ -6,29 +6,39 @@
     %title toolmantim.com
     %script
       :plain
-        // Feature detect webkit animation support
         (function() {
-          var e = document.createElement("div");
-          e.style["-webkit-animation"] = "abc 1s";
-          if (e.style["-webkit-animation-name"])
-            document.documentElement.className = "animations";
+        
+          var docElem = document.documentElement;
+
+          // Feature detect webkit animation support
+          var animations = (function() {
+            var e = document.createElement("div");
+            e.style["-webkit-animation"] = "abc 1s";
+            if (e.style["-webkit-animation-name"]) {
+              docElem.className = "animations";
+              return true;
+            }
+          })();
+          
+          // Fix Safari animation forwards not recalculating % values by turning
+          // off animation class after last animation finishes.
+          window.addEventListener("webkitAnimationEnd", function(e) {
+            if (e.animationName == "berlin") docElem.className = "";
+          }, false);
+
+          // Add "loaded" class for animations once background image has loaded
+          if (animations) {
+            window.addEventListener("load", function() {
+              // Background image changes with @media styles
+              var bgUrl = getComputedStyle(document.querySelector("article")).backgroundImage,
+                  bgImg = bgUrl.match(/^url\((.*)\)$/)[1],
+                  img = document.createElement("img");
+              img.addEventListener("load", function() { docElem.className += " loaded"; }, false)
+              img.setAttribute("src", bgImg);
+            }, false);
+          }
+        
         })();
-
-        // Turn off animation class after last animation finishes, as a bug fix
-        // for Safari animation forwards not recalculating % values
-        window.addEventListener("webkitAnimationEnd", function(e) {
-          if (e.animationName == "berlin") document.documentElement.className = "";
-        }, false);
-
-        // Add "loaded" class once background image has loading
-        window.addEventListener("load", function() {
-          var a = document.getElementsByTagName("article")[0];
-          // Background image changes with @media styles
-          // TODO: Get background image using computed style
-          // Load that sucker
-          // When it loads, fire this sucker:
-          document.documentElement.className += " loaded";
-        }, false);
     %style
       :plain
         /*
@@ -61,8 +71,8 @@
         }
       
         html, body, h1, header, nav { margin: 0; padding: 0; }
-        html { font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; }
-        html, body { width: 100%; height: 100%; background-color: #571B0E; }
+        html { font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; background-color: #571B0E; }
+        html, body, article { width: 100%; height: 100%; }
         body { -webkit-text-size-adjust: none; }
         header {
           position: absolute;
@@ -143,28 +153,25 @@
           text-shadow: 0 1px 0 black;
         }
         article {
-          position: absolute;
-          width: 100%;
-          height: 100%;
+          position: relative;
           min-height: 320px;
           background: url('photo-large.jpg') 50% 0 no-repeat;
           -webkit-background-size: cover;
           -moz-background-size: cover;
           background-size: cover;
           z-index: 1;
-          display: box;
-          display: -webkit-box;
-          display: -moz-box;
-          box-orient: horizontal;
-          -webkit-box-orient: horizontal;
-          -moz-box-orient: horizontal;
-          -webkit-box-align: center;
-          -moz-box-align: center;
-          box-align: center;
-          -webkit-box-pack: center;
-          -moz-box-pack: center;
-          box-pack: center;
-          overflow: hidden;
+          display:-webkit-box;
+          -webkit-box-pack:center;
+          -webkit-box-align:center;
+          display:-moz-box;
+          -moz-box-pack:center;
+          -moz-box-align:center;
+          display:box;
+          box-pack:center;
+          box-align:center;
+        }
+        .animations article {
+          overflow: hidden; /* We only need this for animations, and it trips out FF flexbox height */
         }
         article h1 {
           width: 100%;
