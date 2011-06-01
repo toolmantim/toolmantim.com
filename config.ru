@@ -51,6 +51,7 @@ get "/" do
 end
 
 get "/hallo-berlin/" do
+  last_modified File.mtime("public/hallo-berlin/index.haml")
   haml :"public/hallo-berlin/index"
 end
 
