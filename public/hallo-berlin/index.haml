@@ -36,7 +36,7 @@
         }
       
         html, body, h1, header, nav { margin: 0; padding: 0; }
-        html { font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; background-color: #571B0E; }
+        html { font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; background-color: #3b0a00; }
         html, body, article { width: 100%; height: 100%; }
         /* display:block new HTML5 elements */
         header, nav, article, footer { display: block; }
@@ -93,6 +93,7 @@
         }
         header a.email { background-image: url(#{data_uri('hallo-berlin/nav-icons/email.svg')}); }
         header a.twitter { background-image: url(#{data_uri('hallo-berlin/nav-icons/twitter.svg')}); }
+        header a.readme { background-image: url(#{data_uri('hallo-berlin/nav-icons/readme.svg')}); }
         header a.flickr { background-image: url(#{data_uri('hallo-berlin/nav-icons/flickr.svg')}); }
         header a.github { background-image: url(#{data_uri('hallo-berlin/nav-icons/github.svg')}); }
         header a.dribbble { background-image: url(#{data_uri('hallo-berlin/nav-icons/dribbble.svg')}); }
@@ -347,6 +348,7 @@
           /* SVG replacements */
           header a.email { background-image: url(nav-icons/email.png); }
           header a.twitter { background-image: url(nav-icons/twitter.png); }
+          header a.readme { background-image: url(nav-icons/readme.png); }
           header a.flickr { background-image: url(nav-icons/flickr.png); }
           header a.github { background-image: url(nav-icons/github.png); }
           header a.dribbble { background-image: url(nav-icons/dribbble.png); }
@@ -423,6 +425,7 @@
       %nav
         %a.email{href:"mailto:t@THISDOMAIN", title:"Email"} Email
         %a.twitter{href:"http://twitter.com/toolmantim", title:"Twitter"} Twitter
+        -# %a.readme{href:"http://readme.toolmantim.com/", title:"Readme"} Readme
         %a.flickr{href:"http://flickr.com/photos/toolmantim", title:"Flickr"} Flickr
         %a.github{href:"http://github.com/toolmantim", title:"Github"} Github
         %a.dribbble{href:"http://dribbble.com/toolmantim", title:"Dribble"} Dribbble
