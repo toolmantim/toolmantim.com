@@ -22,13 +22,16 @@ use Rack::Rewrite do
   end
 
   r301 '/halloween-2010', '/halloween-2010/'
-  send_file '/halloween-2010/', 'public/halloween-2010/index.html'
+  rewrite "/halloween-2010/", "/halloween-2010/index.html"
+
+  r301 '/dear-bankwest', '/dear-bankwest/'
+  rewrite "/dear-bankwest/", "/dear-bankwest/index.html"
 
   r301 '/hello-berlin', '/hallo-berlin'
   r301 '/hallo-berlin', '/hallo-berlin/'
-
-  rewrite "/halloween-2010/", "/halloween-2010/index.html"
-  rewrite "/dear-bankwest/", "/dear-bankwest/index.html"
+  
+  
+  r301 '/', '/hallo-berlin/'
 end
 
 require 'sinatra'
@@ -44,10 +47,6 @@ helpers do
     Datafy.make_data_uri File.read(File.join(settings.public, f)),
                          content_type
   end
-end
-
-get "/" do
-  redirect "/hallo-berlin/"
 end
 
 get "/hallo-berlin/" do
