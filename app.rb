@@ -13,6 +13,10 @@ helpers do
   end
 end
 
+get "/" do
+  haml :index
+end
+
 get "/hallo-berlin/" do
   haml :"public/hallo-berlin/index"
 end

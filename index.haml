@@ -1,0 +1,160 @@
+!!!
+%html
+  %head
+    %meta{charset:"utf-8"}
+    %meta{name:"viewport", content:"width=device-width, initial-scale=1.0"}
+    %link{rel:"shortcut icon", href:"favicon.gif", type:"image/gif"}
+    %title Tim Lucas | designer, developer, drinker, thinker.
+    %style
+      :plain
+        html, body, h1, header, nav, ol, li { margin: 0; padding: 0; }
+        html { font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; background-color: #f5f5f5; }
+        html, body, article { width: 100%; height: 100%; }
+        /* display:block new HTML5 elements */
+        header, nav, article, footer { display: block; }
+        body { -webkit-text-size-adjust: none; }
+        a img { border: none; }
+        body {
+          text-align: center;
+          display:-webkit-box;
+          -webkit-box-pack:center;
+          -webkit-box-align:center;
+          display:-moz-box;
+          -moz-box-pack:center;
+          -moz-box-align:center;
+          display:box;
+          box-pack:center;
+          box-align:center;
+          -webkit-box-shadow: inset 0 0 300px #ccc;
+          -moz-box-shadow: inset 0 0 300px #ccc;
+          box-shadow: inset 0 0 300px #ccc;
+        }
+        header {
+          display: inline-block;
+          color: black;
+          padding: 10px 15px;
+          margin-left: -1em;
+          border-radius: 5px;
+        }
+        header, footer {
+          z-index: 2;
+        }
+        header > * {
+          float: left;
+        }
+        header h1 {
+          font-size: 18px;
+          line-height: 24px;
+          padding-right: 10px;
+          margin-right: 10px;
+          border-right: 1px solid #ccc;
+        }
+        header a {
+          position: relative;
+          width: 24px;
+          height: 24px;
+          text-indent: -10000px;
+          float:left;
+          opacity: .3;
+          -webkit-transition: opacity 120ms linear;
+          -moz-transition: opacity 120ms linear;
+          transition: opacity 120ms linear;
+          text-decoration: none;
+          background-size: 100%;
+          -webkit-background-size: 100%;
+          -moz-background-size: 100%;
+        }
+        header a + a {
+          margin-left: 5px;
+        }
+        header a:hover {
+          opacity: 1;
+        }
+        header a.email { background-image: url(#{data_uri('hallo-berlin/nav-icons/email.svg')}); }
+        header a.twitter { background-image: url(#{data_uri('hallo-berlin/nav-icons/twitter.svg')}); }
+        header a.readme { background-image: url(#{data_uri('hallo-berlin/nav-icons/readme.svg')}); }
+        header a.flickr { background-image: url(#{data_uri('hallo-berlin/nav-icons/flickr.svg')}); }
+        header a.github { background-image: url(#{data_uri('hallo-berlin/nav-icons/github.svg')}); }
+        header a.dribbble { background-image: url(#{data_uri('hallo-berlin/nav-icons/dribbble.svg')}); }
+        header a:hover:after {
+          content: attr(title);
+          position: absolute;
+          top: 30px;
+          left: -88px;
+          width: 200px;
+          color: black;
+          font-size: 11px;
+          font-weight: bold;
+          text-align: center;
+          text-indent: 0;
+          text-transform: uppercase;
+        }
+        
+        @media screen and (max-width: 480px) {
+          header {
+            margin-left: 0;
+            padding-bottom: 2em;
+          }
+          header > * {
+            float: none;
+          }
+          header h1 {
+            margin-right: 0;
+            border-right: none;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+          }
+          header nav {
+            float: none;
+            margin-top: 10px;
+          }
+        }
+    
+    /[if lt IE 9]
+      %script
+        :plain
+          // Shiv those elements!
+          (function(elems) {
+            for (var i=0; i < elems.length; i++)
+              document.createElement(elems[i]);
+          })(["header", "nav", "article", "footer"]);
+      %style
+        :plain
+          /* SVG replacements */
+          header a.email { background-image: url(nav-icons/email.png); }
+          header a.twitter { background-image: url(nav-icons/twitter.png); }
+          header a.readme { background-image: url(nav-icons/readme.png); }
+          header a.flickr { background-image: url(nav-icons/flickr.png); }
+          header a.github { background-image: url(nav-icons/github.png); }
+          header a.dribbble { background-image: url(nav-icons/dribbble.png); }
+    
+    %script
+      :plain
+        // Analytics
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-196014-3']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+        
+    %link(rel="openid.server" href="http://www.myopenid.com/server")
+    %link(rel="openid.delegate" href="http://toolmantim.myopenid.com/")
+  %body
+    %header
+      %h1 toolmantim
+      %nav
+        %a.email{href:"mailto:t@THISDOMAIN", title:"Email"} Email
+        %a.twitter{href:"http://twitter.com/toolmantim", title:"Twitter"} Twitter
+        %a.flickr{href:"http://flickr.com/photos/toolmantim", title:"Flickr"} Flickr
+        %a.github{href:"http://github.com/toolmantim", title:"Github"} Github
+        %a.dribbble{href:"http://dribbble.com/toolmantim", title:"Dribbble"} Dribbble
+ 
+    %script
+      :plain
+        (function(links) {
+          for (var i = 0; i < links.length; i++)
+            links[i].href = links[i].href.replace("THISDOMAIN", window.location.host);
+        })(document.getElementsByTagName("a"));

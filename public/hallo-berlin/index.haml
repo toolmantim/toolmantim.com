@@ -42,74 +42,23 @@
         header, nav, article, footer { display: block; }
         body { -webkit-text-size-adjust: none; }
         a img { border: none; }
-        header {
+        header h1 a {
+          display: block;
           position: absolute;
           top: 0;
           left: 0;
           background-color: white;
           color: black;
-          padding: 10px 15px;
+          padding: 9px 18px;
+          font-size: 18px;
+          line-height: 24px;
           -webkit-border-bottom-right-radius: 5px;
           -moz-border-radius-bottomright: 5px;
           border-bottom-right-radius: 5px;
-          -webkit-transition: padding 120ms linear;
-          -moz-transition: padding 120ms linear;
-          -o-transition: padding 120ms linear;
-          transition: padding 120ms linear;
-        }
-        header, footer {
-          z-index: 2;
-        }
-        header > * {
-          float: left;
-        }
-        header h1 {
-          font-size: 18px;
-          line-height: 24px;
-          padding-right: 10px;
-          margin-right: 10px;
-          border-right: 1px solid #ccc;
-        }
-        header a {
-          position: relative;
-          width: 24px;
-          height: 24px;
-          text-indent: -1000px;
-          float:left;
-          opacity: .3;
-          -webkit-transition: opacity 120ms linear;
-          -moz-transition: opacity 120ms linear;
-          transition: opacity 120ms linear;
           text-decoration: none;
-          background-size: 100%;
-          -webkit-background-size: 100%;
-          -moz-background-size: 100%;
         }
-        header a + a {
-          margin-left: 5px;
-        }
-        header a:hover {
-          opacity: 1;
-        }
-        header a.email { background-image: url(#{data_uri('hallo-berlin/nav-icons/email.svg')}); }
-        header a.twitter { background-image: url(#{data_uri('hallo-berlin/nav-icons/twitter.svg')}); }
-        header a.readme { background-image: url(#{data_uri('hallo-berlin/nav-icons/readme.svg')}); }
-        header a.flickr { background-image: url(#{data_uri('hallo-berlin/nav-icons/flickr.svg')}); }
-        header a.github { background-image: url(#{data_uri('hallo-berlin/nav-icons/github.svg')}); }
-        header a.dribbble { background-image: url(#{data_uri('hallo-berlin/nav-icons/dribbble.svg')}); }
-        header a:hover:after {
-          content: attr(title);
-          position: absolute;
-          top: 40px;
-          left: -88px;
-          width: 200px;
-          color: white;
-          font-size: 11px;
-          font-weight: bold;
-          text-align: center;
-          text-indent: 0;
-          text-transform: uppercase;
-          text-shadow: 0 1px 0 black;
+        header h1 a, footer {
+          z-index: 2;
         }
         article {
           position: relative;
@@ -346,12 +295,6 @@
       %style
         :plain
           /* SVG replacements */
-          header a.email { background-image: url(nav-icons/email.png); }
-          header a.twitter { background-image: url(nav-icons/twitter.png); }
-          header a.readme { background-image: url(nav-icons/readme.png); }
-          header a.flickr { background-image: url(nav-icons/flickr.png); }
-          header a.github { background-image: url(nav-icons/github.png); }
-          header a.dribbble { background-image: url(nav-icons/dribbble.png); }
           article .plane { background-image: url(plane.png); }
           
           /* Font-face fix for IE6-8 */
@@ -424,14 +367,8 @@
   %body
   
     %header
-      %h1 toolmantim
-      %nav
-        %a.email{href:"mailto:t@THISDOMAIN", title:"Email"} Email
-        %a.twitter{href:"http://twitter.com/toolmantim", title:"Twitter"} Twitter
-        -# %a.readme{href:"http://readme.toolmantim.com/", title:"Readme"} Readme
-        %a.flickr{href:"http://flickr.com/photos/toolmantim", title:"Flickr"} Flickr
-        %a.github{href:"http://github.com/toolmantim", title:"Github"} Github
-        %a.dribbble{href:"http://dribbble.com/toolmantim", title:"Dribbble"} Dribbble
+      %h1
+        %a(href="/") toolmantim
         
     %article
       %h1

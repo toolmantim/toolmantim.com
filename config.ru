@@ -29,9 +29,6 @@ use Rack::Rewrite do
 
   r301 '/hello-berlin', '/hallo-berlin'
   r301 '/hallo-berlin', '/hallo-berlin/'
-  
-  
-  r301 '/', '/hallo-berlin/'
 end
 
 require './app'
