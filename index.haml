@@ -141,6 +141,18 @@
           header a.github { background-image: url(images/nav-icons/github.png); }
           header a.dribbble { background-image: url(images/nav-icons/dribbble.png); }
     
+    /[if lte IE 9]
+      %style
+        :plain
+          /* Vertical center sans-flexbox */
+          body {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin-top: -20px;
+            height: 100px;
+          }
+    
     %script
       :plain
         // Analytics
