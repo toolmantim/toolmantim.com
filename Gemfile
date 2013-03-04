@@ -1,5 +1,6 @@
-source :rubyforge
+source 'https://rubygems.org'
 
-gem 'rack-rewrite', '1.0.0'
+gem 'puma'
+gem 'rack-rewrite'
 gem 'sinatra'
 gem 'haml'

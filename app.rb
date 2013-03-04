@@ -8,7 +8,7 @@ require "./datafy"
 
 helpers do
   def data_uri(f, content_type=mime_type(File.extname(f)))
-    Datafy.make_data_uri File.read(File.join(settings.public, f)),
+    Datafy.make_data_uri File.read(File.join(settings.root, 'public', f)),
                          content_type
   end
 end
