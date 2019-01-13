@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <link href='favicon.png' rel='shortcut icon' type='image/png'>
+    <title>Tim Lucas - designer / developer / digital confabulator</title>
+    <style>
+      html, body, h1, header, nav, ol, li { margin: 0; padding: 0; }
+      html {
+        font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+        background-color: #f5f5f5;
+        background-image: url(images/grain.png);
+      }
+      html, body, article { width: 100%; height: 100%; }
+      a img { border: none; }
+      body {
+        text-align: center;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: inset 0 0 100px #ddd;
+      }
+      header {
+        display: inline-block;
+        color: black;
+        padding: 10px 15px;
+        margin-left: -1em;
+        border-radius: 5px;
+      }
+      header, footer {
+        z-index: 2;
+      }
+      header > * {
+        float: left;
+      }
+      header h1 {
+        font-size: 18px;
+        line-height: 24px;
+        padding-right: 10px;
+        margin-right: 10px;
+        border-right: 1px solid #ccc;
+      }
+      header a {
+        position: relative;
+        width: 24px;
+        height: 24px;
+        text-indent: -10000px;
+        float:left;
+        opacity: .3;
+        transition: opacity 120ms linear;
+        text-decoration: none;
+        background-size: 100%;
+      }
+      header a + a {
+        margin-left: 5px;
+      }
+      header a:hover {
+        opacity: 1;
+      }
+      header a.email { background-image: url(images/nav-icons/email.svg); }
+      header a.twitter { background-image: url(images/nav-icons/twitter.svg); }
+      header a.readme { background-image: url(images/nav-icons/readme.svg); }
+      header a.flickr { background-image: url(images/nav-icons/flickr.svg); }
+      header a.github { background-image: url(images/nav-icons/github.svg); }
+      header a.dribbble { background-image: url(images/nav-icons/dribbble.svg); }
+      header a.instagram { background-image: url(images/nav-icons/instagram.svg); }
+      header a:hover:after {
+        content: attr(title);
+        position: absolute;
+        top: 30px;
+        left: -88px;
+        width: 200px;
+        color: black;
+        font-size: 11px;
+        font-weight: bold;
+        text-align: center;
+        text-indent: 0;
+        text-transform: uppercase;
+      }
+      
+      @media screen and (max-width: 480px) {
+        body {
+          box-shadow: inset 0 0 10px #ddd;
+        }
+        header {
+          margin-left: 0;
+          padding-bottom: 2em;
+          padding-right: 0;
+        }
+        header > * {
+          float: none;
+        }
+        header h1 {
+          margin-right: 0;
+          border-right: none;
+          border-bottom: 1px solid #ccc;
+          padding-bottom: 5px;
+        }
+        header nav {
+          float: none;
+          margin-top: 10px;
+        }
+      }
+      *::selection {
+        background-color: #96cfff;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>toolmantim</h1>
+      <nav>
+        <a class='email' href='mailto:t@THISDOMAIN' title='Email'>Email</a>
+        <a class='twitter' href='http://twitter.com/toolmantim' rel='me' title='Twitter'>Twitter</a>
+        <a class='instagram' href='http://instagram.com/toolmantim' rel='me' title='Instagram'>Instagram</a>
+        <a class='github' href='http://github.com/toolmantim' rel='me' title='Github'>Github</a>
+        <a class='dribbble' href='http://dribbble.com/toolmantim' rel='me' title='Dribbble'>Dribbble</a>
+      </nav>
+    </header>
+    <script>
+      (function(links) {
+        for (var i = 0; i < links.length; i++)
+          links[i].href = links[i].href.replace("THISDOMAIN", window.location.host);
+      })(document.getElementsByTagName("a"));
+    </script>
+  </body>
+</html>
