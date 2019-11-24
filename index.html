@@ -21,6 +21,10 @@
           --page-bg-vignette-color: #131313;
           --border-color: #303030;
         }
+        body {
+          /* Mobile safari doesn't seem to respect the vars */
+          box-shadow: inset 0 0 100px #131313;
+        }
         header a {
           filter: invert();
         }
