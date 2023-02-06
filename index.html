@@ -200,7 +200,7 @@
         let pbjs;
         let lastPbj;
 
-        humanHeadNotDOMHead.addEventListener("click", (event) => {
+        humanHeadNotDOMHead.addEventListener("mousedown", (event) => {
           event.preventDefault();
           speechSynthesis.cancel();
 
@@ -259,7 +259,7 @@
             lastPbj = thisPbj;
           }
         });
-      });
+      }, false);
 
       document.addEventListener("DOMContentLoaded", () => {
         const lightning = document.querySelector(".Lightning");
@@ -269,7 +269,7 @@
             lightning.classList.remove("Lightning--active");
           }, 300);
         });
-      });
+      }, false);
     </script>
   </head>
   <body>
